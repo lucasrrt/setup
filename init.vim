@@ -107,6 +107,7 @@ set nu
 set whichwrap+=<,>,h,l,[,]
 set nowrap
 set tabstop=4
+set scrolloff=3
 set hlsearch
 set incsearch
 set ignorecase
