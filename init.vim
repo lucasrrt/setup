@@ -32,9 +32,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug '~/my-prototype-plugin'
 
 " Oceanic next theme
-Plug 'mhartington/oceanic-next'
+"Plug 'mhartington/oceanic-next'
 
-Plug 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'adimit/prolog.vim'
 Plug 'nikvdp/ejs-syntax'
@@ -45,9 +45,12 @@ Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-eunuch'
 
+"Plug to identify ejs tags
+Plug 'briancollins/vim-jst'
+
 " Plugins to change status line
 Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-airline/vim-airline-themes'
 set laststatus=2
 " Launch vim and run :PluginInstall
 
@@ -69,6 +72,9 @@ let g:UltiSnipsExpandTrigger = "<tab>"
 let g:UltiSnipsJumpForwardTrigger = "<tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
+"Ctrlpvim
+"let ctrlp find dotfiles
+let g:ctrlp_show_hidden = 1
 
 au BufNewFile,BufRead *.html.ejs set filetype=html
 
@@ -100,7 +106,7 @@ endif
 
 " Theme
 syntax enable
-colorscheme OceanicNext
+"colorscheme OceanicNext
 
 "set rnu
 set nu
@@ -152,4 +158,5 @@ map <ENTER> i<ENTER><ESC>
 "augroup END
 
 " Default register unnamedplus
-set clipboard=unnamedplus
+" set clipboard=unnamedplus
+set clipboard=unnamed

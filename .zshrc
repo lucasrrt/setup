@@ -1,22 +1,21 @@
+# If you come from bash you might have to change your $PATH.
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 # Path to your oh-my-zsh installation.
-export ZSH=/home/ricarte/.oh-my-zsh
+export ZSH=/Users/ricarte/.oh-my-zsh
 
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-#ZSH_THEME="robbyrussell"
-#ZSH_THEME="gentoo"
-#ZSH_THEME="af-magic"
-ZSH_THEME="muse"
-
-
-#Color-scheme
-export TERM="xterm-256color"
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="robbyrussell"
+#ZSH_THEME="pygmalion"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -53,14 +52,16 @@ export TERM="xterm-256color"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git colored-man colorize github jira vagrant virtualenv pip python brew osx zsh-syntax-highlighting)
+
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
-# export MANPATH="/usr/local/man:$MANPATH"
+# Add env.sh
+#source ~/Projects/config/env.sh
 
-source $ZSH/oh-my-zsh.sh
+# export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -80,7 +81,7 @@ export VISUAL=$EDITOR
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -91,25 +92,20 @@ export VISUAL=$EDITOR
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-#coisas do ricarte
-alias visual='~/VSCode-linux-x64/Code&'
-alias studio='cd ~/Applications/android-studio/bin && ./studio.sh'
-alias neon='~/eclipse/java-neon/eclipse/eclipse'
-alias evim='vim ~/.config/nvim/init.vim'
-alias etmux='vim ~/.tmux.conf'
-alias ezsh='vim ~/.zshrc'
-alias open='gnome-open'
+#Personal things
 alias vim='nvim'
 alias vi='nvim'
+alias evim='nvim ~/.config/nvim/init.vim'
+alias etmux='nvim ~/.tmux.conf'
+alias ezsh='nvim ~/.zshrc'
+alias api='cd ~/paperx/paperx_api'
+alias back='cd ~/paperx/app'
+alias core='cd ~/paperx/paperx_core'
+alias front='cd ~/paperx/paperx_core/app'
+alias data='cd ~/paperx/paperx_data'
 
-alias gits='git status'
-alias gita='git add -A'
-alias gith='git push'
-alias gitl='git pull'
+#Extra alias for build
+eval "$(rbenv init -)"
+alias md5sum='md5 -r'
 
-#if["$TMUX" = ""]; then tmux; fi
-#if [[ ! $TERM =~ screen ]]; then
-#	exec tmux
-#fi
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
