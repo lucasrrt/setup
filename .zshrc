@@ -52,7 +52,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man colorize github jira vagrant virtualenv pip python brew osx zsh-syntax-highlighting)
+plugins=(git colored-man colorize github jira vagrant virtualenv pip python brew osx zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -73,7 +73,7 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 
-export EDITOR="vim"
+export EDITOR="nvim"
 export USE_EDITOR=$EDITOR
 export VISUAL=$EDITOR
 
@@ -92,20 +92,33 @@ export VISUAL=$EDITOR
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-#Personal things
+#Personal things, as anything in this file
 alias vim='nvim'
 alias vi='nvim'
+alias v='nvim'
+alias vm='nvim'
 alias evim='nvim ~/.config/nvim/init.vim'
 alias etmux='nvim ~/.tmux.conf'
 alias ezsh='nvim ~/.zshrc'
 alias api='cd ~/paperx/paperx_api'
-alias back='cd ~/paperx/app'
 alias core='cd ~/paperx/paperx_core'
-alias front='cd ~/paperx/paperx_core/app'
+alias front='cd ~/paperx/paperx_core/src/app'
+alias back='cd ~/paperx/paperx_api/app'
 alias data='cd ~/paperx/paperx_data'
+alias loonaapp='cd ~/paperx/loona_app'
+alias loona='cd ~/paperx/loona_api'
+alias elastic='~/Documentos/elasticsearch-5.6.2/bin/elasticsearch'
+alias oldelastic='~/Documentos/elasticsearch-5.4.0/bin/elasticsearch'
+alias kibana='~/Documentos/kibana-5.6.2-darwin-x86_64/bin/kibana'
+alias love='/Applications/love.app/Contents/MacOS/love'
+alias comp='cd ~/Documentos/Computação\ 2018.1/'
+alias paperx='sh ~/paperx/paperx_cli/paperx-cli'
 
 #Extra alias for build
 eval "$(rbenv init -)"
 alias md5sum='md5 -r'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+# export PATH="$PATH:$HOME/.rvm/bin"

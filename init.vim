@@ -1,3 +1,4 @@
+let mapleader = ","
 " Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 call plug#begin('~/.local/share/nvim/plugged')
 
@@ -39,12 +40,28 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'adimit/prolog.vim'
 Plug 'nikvdp/ejs-syntax'
 Plug 'leafgarland/typescript-vim'
+Plug 'mhartington/nvim-typescript', { 'do': ':UpdateRemotePlugins' }
 Plug 'tpope/vim-rails'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-eunuch'
+Plug 'wesQ3/vim-windowswap'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
+Plug 'davisdude/vim-love-docs'
+Plug 'airblade/vim-gitgutter'
+Plug 'elmcast/elm-vim'
+Plug 'mileszs/ack.vim'
 
+"Ack! be the default Ack
+cnoreabbrev Ack Ack!
+nnoremap π :Ack!<Space> 
+
+"Autocomplete
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'w0rp/ale'
 "Plug to identify ejs tags
 Plug 'briancollins/vim-jst'
 
@@ -66,6 +83,7 @@ let g:ycm_extra_conf_vim_data   = ['&filetype']
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:python2_host_prog = '/usr/bin/python2'
 
 "UtilSnips
 let g:UltiSnipsExpandTrigger = "<tab>"
@@ -75,6 +93,8 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 "Ctrlpvim
 "let ctrlp find dotfiles
 let g:ctrlp_show_hidden = 1
+"remove files number limit
+let g:ctrlp_max_files=0
 
 au BufNewFile,BufRead *.html.ejs set filetype=html
 
@@ -105,13 +125,13 @@ if (has("termguicolors"))
 endif
 
 " Theme
-syntax enable
+"syntax enable
 "colorscheme OceanicNext
 
 "set rnu
 set nu
 set whichwrap+=<,>,h,l,[,]
-set nowrap
+set wrap
 set tabstop=4
 set scrolloff=3
 set hlsearch
@@ -129,10 +149,11 @@ hi SpecialKey ctermfg=235
 set mouse=nv
 set timeout
 set timeoutlen=0
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+set relativenumber
+map <C-k> <C-W>j
+map <C-l> <C-W>k
+map <C-j> <C-W>h
+map <C-;> <C-W>l
 map <C-Down> <C-W>j
 map <C-Up> <C-W>k
 map <C-Left> <C-W>h
@@ -144,8 +165,45 @@ map ç o<ESC>O
 map <ENTER> i<ENTER><ESC>
 " inoremap <silent> <Esc> <Esc>`^
 
+" Colorscheme for text
+hi Visual guifg=Black
+hi Search guifg=Black
+hi DiffAdd guifg=Black
+hi DiffChange guifg=Black
+hi Pmenu guifg=Black
+hi TabLine guifg=Black
+hi CursorColumn guifg=Black
+hi CursorLine guifg=Black
+hi ColorColumn guifg=Black
+hi MatchParen guifg=Black
+hi GitGutterAddLine guifg=Black
+hi GitGutterChangeLine guifg=Black
+hi GitGutterChangeDeleteLine guifg=Black
+hi airline_c_to_airline_x guifg=LightGrey
+hi airline_c_to_airline_x_bold guifg=LightGrey
+
+
+" ale plugin: identify errors
+nmap ≤ <Plug>(ale_previous_wrap)
+nmap ≥ <Plug>(ale_next_wrap)
+
+" git modifications
+set updatetime=100
+nmap œ <Plug>GitGutterPrevHunk
+nmap ∑ <Plug>GitGutterNextHunk
+
+" mapping alt keys
+nnoremap å :m .-2<CR>==
+nnoremap ß :m .+1<CR>==
+
+inoremap å <Esc>:m .-2<CR>==gi
+inoremap ß <Esc>:m .+1<CR>==gi
+
+vnoremap å :m '<-2<CR>gv==gv
+vnoremap ß :m '>+1<CR>gv==gv
+
 "set background=dark
-"hi cursorline   cterm=none ctermbg=235 
+"uuihi cursorline   cterm=none ctermbg=235 
 "hi cursorcolumn cterm=none ctermbg=235 
 "autocmd InsertLeave *  hi cursorline   cterm=none ctermbg=235
 "autocmd InsertLeave *  hi cursorcolumn   cterm=none ctermbg=235
@@ -160,3 +218,13 @@ map <ENTER> i<ENTER><ESC>
 " Default register unnamedplus
 " set clipboard=unnamedplus
 set clipboard=unnamed
+
+" ctrlp ignores untracked files for git
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
+let g:ctrlp_custom_ignore = 'DS_Store'
+
+"let g:ctrp_map = ',p'
+"let g:ctrp_cmd = 'CtrlP'
+
+"start deoplete
+let g:deoplete#enable_at_startup = 1
