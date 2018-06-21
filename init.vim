@@ -54,6 +54,7 @@ Plug 'davisdude/vim-love-docs'
 Plug 'airblade/vim-gitgutter'
 Plug 'elmcast/elm-vim'
 Plug 'mileszs/ack.vim'
+Plug 'yuttie/comfortable-motion.vim'
 
 "Ack! be the default Ack
 cnoreabbrev Ack Ack!
@@ -188,9 +189,10 @@ nmap ≤ <Plug>(ale_previous_wrap)
 nmap ≥ <Plug>(ale_next_wrap)
 
 " git modifications
-set updatetime=100
-nmap œ <Plug>GitGutterPrevHunk
-nmap ∑ <Plug>GitGutterNextHunk
+set updatetime=250
+
+nmap “ <Plug>GitGutterPrevHunk
+nmap ‘ <Plug>GitGutterNextHunk
 
 " mapping alt keys
 nnoremap å :m .-2<CR>==
@@ -220,8 +222,8 @@ vnoremap ß :m '>+1<CR>gv==gv
 set clipboard=unnamed
 
 " ctrlp ignores untracked files for git
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
-let g:ctrlp_custom_ignore = 'DS_Store'
+"let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
+let g:ctrlp_custom_ignore = 'DS_Store\|node_modules\|.cached\|www\|\.git'
 
 "let g:ctrp_map = ',p'
 "let g:ctrp_cmd = 'CtrlP'

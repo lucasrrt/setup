@@ -114,6 +114,11 @@ alias love='/Applications/love.app/Contents/MacOS/love'
 alias comp='cd ~/Documentos/Computação\ 2018.1/'
 alias paperx='sh ~/paperx/paperx_cli/paperx-cli'
 
+#MPI aliases
+alias mpirun='$HOME/opt/usr/local/bin/mpirun'
+alias mpicc='$HOME/opt/usr/local/bin/mpicc'
+alias mpic++='$HOME/opt/usr/local/bin/mpic++'
+
 #Extra alias for build
 eval "$(rbenv init -)"
 alias md5sum='md5 -r'
