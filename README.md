@@ -1,2 +1,2 @@
 # dotfiles
-Some configuration for Tmux, NeoVim and Zsh
+Some configuration for Tmux, NeoVim, Zsh, and VsCode
