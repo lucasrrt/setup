@@ -1,0 +1,71 @@
+{
+  "terminal.integrated.shell.osx": "zsh",
+  "git.confirmSync": false,
+  "git.autofetch": true,
+  "gitlens.advanced.messages": {
+    "suppressFileNotUnderSourceControlWarning": true
+  },
+  "terminal.integrated.scrollback": 10000,
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "<C-h>"
+      ],
+      "after": [
+        "<C-w>",
+        "<C-h>"
+      ]
+    },
+    {
+      "before": [
+        "<C-j>"
+      ],
+      "after": [
+        "<C-w>",
+        "<C-j>"
+      ]
+    },
+    {
+      "before": [
+        "<C-k>"
+      ],
+      "after": [
+        "<C-w>",
+        "<C-k>"
+      ]
+    },
+    {
+      "before": [
+        "<C-l>"
+      ],
+      "after": [
+        "<C-w>",
+        "<C-l>"
+      ]
+    },
+  ],
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<Esc>",
+        "<Right>"
+      ]
+    }
+  ],
+  "vim.scroll": 3,
+  "editor.detectIndentation": false,
+  "editor.tabSize": 2,
+  "window.zoomLevel": 0,
+  "vim.useSystemClipboard": true,
+  "workbench.tree.indent": 16,
+  "breadcrumbs.enabled": true,
+  "editor.lineNumbers": "relative",
+  "vim.hlsearch": true,
+  "vim.easymotion": true,
+  "vim.neovimPath": "/usr/local/bin/nvim",
+  "workbench.tree.renderIndentGuides": "always"
+}
