@@ -7,5 +7,5 @@
   {
     "key": "ctrl+shift+tab",
     "command": "workbench.action.previousEditor"
-  }, {}
+  }
 ]
