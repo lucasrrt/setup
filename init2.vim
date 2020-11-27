@@ -39,9 +39,6 @@ function! s:show_documentation()
   endif
 endfunction
 
-" syntax line number
-syntax sync minlines=1500
-
 
 Plug 'mileszs/ack.vim'
 
@@ -66,7 +63,7 @@ nnoremap <leader>h :History<CR>
 " Git
 Plug 'tpope/vim-fugitive'
 " for patch adds check: https://vi.stackexchange.com/a/14888
-nnoremap gs :Gstatus<CR>
+nnoremap <silent> gs :Gstatus<CR>
 
 Plug 'airblade/vim-gitgutter'
 " ]c jump to next-hunk
@@ -151,4 +148,15 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" [TESTING] resizing panes
+nnoremap <C-w>g <C-w>_<C-w>\|
+nnoremap <silent> <Up> :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Down> :exe "resize " . (winheight(0) * 2/3)<CR>
+nnoremap <silent> <Right> :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
+nnoremap <silent> <Left> :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
+
+" Terminal mappings
+tnoremap <Esc> <C-\><C-n>
+tnoremap <leader><Esc> <Esc>
 
