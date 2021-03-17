@@ -1,27 +1,39 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/ricarte/.oh-my-zsh
+export ZSH="/Users/lucasricartert/.oh-my-zsh"
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
-#ZSH_THEME="pygmalion"
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
 
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -42,24 +54,27 @@ ZSH_THEME="robbyrussell"
 
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git colored-man colorize github jira vagrant virtualenv pip python brew osx zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(
+  git
+)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-
-# Add env.sh
-#source ~/Projects/config/env.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -67,21 +82,18 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
-export EDITOR="nvim"
-export USE_EDITOR=$EDITOR
-export VISUAL=$EDITOR
+# PSQL output bigger than the screen, it uses this variable to know where to put the output
+# Commenting because it's not optimized for other visualizations, ex: git-diff, man. So using the default, that is less
+# export PAGER='vim -R -u ~/.vimrcpg -'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -92,38 +104,80 @@ export VISUAL=$EDITOR
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-#Personal things, as anything in this file
-alias vim='nvim'
-alias vi='nvim'
-alias v='nvim'
-alias vm='nvim'
-alias evim='nvim ~/.config/nvim/init.vim'
-alias etmux='nvim ~/.tmux.conf'
-alias ezsh='nvim ~/.zshrc'
-alias api='cd ~/paperx/paperx_api'
-alias core='cd ~/paperx/paperx_core'
-alias front='cd ~/paperx/paperx_core/src/app'
-alias back='cd ~/paperx/paperx_api/app'
-alias data='cd ~/paperx/paperx_data'
-alias loonaapp='cd ~/paperx/loona_app'
-alias loona='cd ~/paperx/loona_api'
-alias elastic='~/Documentos/elasticsearch-5.6.2/bin/elasticsearch'
-alias oldelastic='~/Documentos/elasticsearch-5.4.0/bin/elasticsearch'
-alias kibana='~/Documentos/kibana-5.6.2-darwin-x86_64/bin/kibana'
-alias love='/Applications/love.app/Contents/MacOS/love'
-alias comp='cd ~/Documentos/Computação\ 2018.1/'
-alias paperx='sh ~/paperx/paperx_cli/paperx-cli'
-
-#MPI aliases
-alias mpirun='$HOME/opt/usr/local/bin/mpirun'
-alias mpicc='$HOME/opt/usr/local/bin/mpicc'
-alias mpic++='$HOME/opt/usr/local/bin/mpic++'
-
-#Extra alias for build
-eval "$(rbenv init -)"
-alias md5sum='md5 -r'
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-# export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="$PATH:$HOME/.rvm/bin"
+
+export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
+export PATH="/Users/lucasricartert/Library/Python/3.7/bin:$PATH"
+export PATH="$PATH:/Users/lucasricartert/development/flutter/bin"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/lucasricartert/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/lucasricartert/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/lucasricartert/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/lucasricartert/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Avoid ^ (as in HEAD^) throwing the error 'no matches found'
+unsetopt nomatch
+
+alias ipecho='curl https://ipecho.net/plain --silent > ipecho.txt ; pbcopy < ipecho.txt ; rm ipecho.txt'
+alias deleteme='cd ~/Desktop/deleteme'
+
+# Repo aliases
+alias cl='cd ~/Descomplica/classrooms'
+alias dm='cd ~/Descomplica/dex-models'
+
+alias crud='cd ~/Descomplica/dex-api-crud'
+alias cq='cd ~/Descomplica/dex-api-custom_queries'
+alias db='cd ~/Descomplica/dex-db'
+
+alias lap='cd ~/Descomplica/lap'
+alias trex='cd ~/Descomplica/lap/trex'
+alias chi='cd ~/Descomplica/chimera'
+alias infra='cd ~/Descomplica/infrastructure'
+
+alias wes='cd ~/Descomplica/westeros'
+
+alias keyb='cd ~/git/keyboard-layouts'
+
+# Command aliases
+alias docup='docker-compose up -d mongo redis'
+
+# Vi mode
+bindkey -v
+export KEYTIMEOUT=1
+
+# Use vim keys in tab complete menu
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -v '^?' backward-delete-char
+
+# Change cursor shape for different vi modes
+function zle-keymap-select {
+  if [[ ${KEYMAP} == vicmd ]] ||
+    [[ $1 = 'block' ]]; then
+    echo -ne '\e[1 q'
+  elif [[ ${KEYMAP} == main ]] ||
+    [[ ${KEYMAP} == viins ]] ||
+    [[ ${KEYMAP} == '' ]] ||
+    [[ $1 = 'beam' ]]; then
+    echo -ne '\e[5 q'
+  fi
+}
+zle -N zle-keymap-select
+zle-line-linit() {
+  zle -K viins #initiate `vi insert` as keymap *can be removed if 'bindkey -V' has been set elsewhere)
+  echo -ne "\e[5 q"
+}
+zle -N zle-line-init
+echo -ne '\e[5 q' # Use beam shape cursor on startup
+preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt
+
+# Use postgres 11 as default
+export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
