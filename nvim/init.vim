@@ -230,10 +230,10 @@ nnoremap <silent> <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <silent> <leader>sv :source $MYVIMRC<CR>
 
 " Learn Vimscript the hard way
-source ~/.config/nvim/learn-vimscript-the-hard-way.vim
+source ~/.config/nvim/configs/learn-vimscript-the-hard-way.vim
 
 " Buffers selector when :buffer has more than one match
-source ~/.config/nvim/bufsel.vim
+source ~/.config/nvim/configs/bufsel.vim
 " Changed this buffer for the :Buffers from FZF
 " nnoremap <leader>buf :buffers<cr>:buffer<space>
 
