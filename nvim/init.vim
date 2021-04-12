@@ -125,6 +125,8 @@ augroup markdown_mappings
   autocmd Filetype markdown setlocal wrap
 augroup END
 
+" Comment blocks of text easily
+Plug 'tpope/vim-commentary'
 
 call plug#end()
 
