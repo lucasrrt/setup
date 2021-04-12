@@ -133,7 +133,6 @@ endif
 set nu
 set whichwrap+=<,>,h,l,[,]
 set wrap
-set tabstop=4
 set scrolloff=3
 set hlsearch
 set incsearch
@@ -142,8 +141,13 @@ set nobackup
 set nowritebackup
 set noswapfile
 set list listchars=tab:\│\  
-set ts=4
-set sw=4
+"
+" Indent options
+set ts=2
+set sts=2
+set sw=2
+set et
+
 set t_Co=256
 hi Normal ctermbg=233
 hi SpecialKey ctermfg=235
