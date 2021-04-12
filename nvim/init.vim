@@ -13,7 +13,10 @@ Plug 'easymotion/vim-easymotion'
 map <Leader>/ <Plug>(easymotion-s)
 nmap f <Plug>(easymotion-s)
 
+" quote ', parentheses (, brackets { [, tags <> manipulation and
+" auto-completition
 Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
 
 " Typescript syntax hightlighting
 Plug 'leafgarland/typescript-vim'
