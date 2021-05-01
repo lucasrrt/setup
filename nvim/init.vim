@@ -1,4 +1,4 @@
-" Trying <space> as the leader
+" <space> as the leader key
 nnoremap <space> <nop>
 let mapleader = " "
 
@@ -216,7 +216,7 @@ nnoremap <leader>o <C-w>o
 
 " Terminal
 " Terminal mappings
-tnoremap <leader><Esc> <C-\><C-n>
+tnoremap bb <C-\><C-n>
 nnoremap <leader>term :tabnew<cr>:term<cr>
 nnoremap <leader>vterm :vsplit<cr>:term<cr>
 nnoremap <leader>sterm :split<cr>:term<cr>
@@ -266,3 +266,6 @@ inoremap \it it('', () => {<Return>expect(true).toBe(true);<Return>});<Esc>kkf'a
 
 " Tab navigation
 nnoremap gr gT
+
+" Column cursor
+nnoremap <leader>cc :set cursorcolumn!<return>
