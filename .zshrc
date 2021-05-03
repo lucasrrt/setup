@@ -147,6 +147,10 @@ alias keyb='cd ~/git/keyboard-layouts'
 # Command aliases
 alias docup='docker-compose up -d mongo redis'
 
+# compa dir
+alias cweb='cd ~/compa/web'
+alias capi='cd ~/compa/api'
+
 # Vi mode
 bindkey -v
 export KEYTIMEOUT=1
