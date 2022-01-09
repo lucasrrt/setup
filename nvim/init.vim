@@ -10,8 +10,8 @@ Plug 'easymotion/vim-easymotion'
 " Useful commands:
 " - <Leader>s find one character on the page
 " map <Space><Space> <Plug>(easymotion-prefix)
-map <Leader>/ <Plug>(easymotion-s)
-nmap f <Plug>(easymotion-s)
+map <Leader>/ <Plug>(easymotion-s2)
+nmap ff <Plug>(easymotion-s)
 
 " quote ', parentheses (, brackets { [, tags <> manipulation and
 " auto-completition
@@ -23,9 +23,13 @@ Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " Color scheme
-hi Pmenu ctermbg=DarkGray ctermfg=White
-hi CocWarningSign ctermfg=Yellow
+" hi Pmenu ctermbg=DarkGray ctermfg=White
+" hi CocWarningSign ctermfg=Yellow
+Plug 'morhetz/gruvbox'
+set termguicolors
+autocmd vimenter * ++nested colorscheme gruvbox
 
 " mapping errors and warnings navigation
 nnoremap ]] :call CocAction('diagnosticNext')<CR>
@@ -41,7 +45,9 @@ nmap <silent> \gt :vsp<CR><Plug>(coc-definition)<C-W>T
 " nmap <silent> gd <Plug>(coc-definition)
 " nmap <silent> gy <Plug>(coc-type-definition)
 " nmap <silent> gi <Plug>(coc-implementation)
-" nmap <silent> gr <Plug>(coc-references)
+nmap <silent> <leader>gr <Plug>(coc-references)
+nmap  <leader>coe :CocEnable<CR>
+nmap  <leader>cod :CocDisable<CR>
 
 " Show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -68,6 +74,7 @@ nnoremap <leader>ag    :Ag<CR>
 nnoremap <leader>h     :History<CR>
 nnoremap <leader>b :Buffers<CR>
 
+" Remove file name from Ag silver grep search
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
 " Some suggestions for mappings
@@ -83,8 +90,9 @@ command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : 
 " Git
 Plug 'tpope/vim-fugitive'
 " for patch adds check: https://vi.stackexchange.com/a/14888
-nnoremap <silent> gs :Gstatus<CR>
-nnoremap <silent> gb :Gblame<CR>
+nnoremap <silent> gs :Git<CR>
+nnoremap <silent> gb :Git blame<CR>
+nnoremap <silent> gl :0Gclog<CR> 
 
 " nnoremap gl :Git pull
 " nnoremap gh :Git push
@@ -94,6 +102,9 @@ Plug 'airblade/vim-gitgutter'
 " [c jump to next-hunk
 nmap ) <Plug>(GitGutterNextHunk)
 nmap ( <Plug>(GitGutterPrevHunk)
+
+" Wrap text for git commit body messages
+au FileType gitcommit setlocal tw=72
 
 " Update diff markers. Can also update other things in Vim
 set updatetime=200
@@ -197,7 +208,9 @@ nnoremap g# g#zz
 nnoremap } }zz
 nnoremap { {zz
 
-" Window management
+" Window management I can use <leader>w as prefix of commands
+nmap <leader>w <C-w>
+
 " * Moving between panes
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -214,9 +227,16 @@ nnoremap <silent> <Left> :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 " * Number of screens
 nnoremap <leader>o <C-w>o
 
+" Splits and pane management
+set splitright
+
+" Change split windows from vertical to horizontal and vice versa
+map <leader>th <C-w>t<C-w>H
+map <leader>tk <C-w>t<C-w>K
+
 " Terminal
 " Terminal mappings
-tnoremap bb <C-\><C-n>
+tnoremap jk <C-\><C-n>
 nnoremap <leader>term :tabnew<cr>:term<cr>
 nnoremap <leader>vterm :vsplit<cr>:term<cr>
 nnoremap <leader>sterm :split<cr>:term<cr>
@@ -242,7 +262,11 @@ source ~/.config/nvim/configs/bufsel.vim
 " Changed this buffer for the :Buffers from FZF
 " nnoremap <leader>buf :buffers<cr>:buffer<space>
 
+" Change buffer name (:help file_f)
+" :file newname
+
 " Explore directories and files
+nnoremap <silent> - :Explore<cr>
 nnoremap <silent> <leader>ex :Explore<cr>
 nnoremap <silent> <leader>vex :Vexplore<cr>
 nnoremap <silent> <leader>hex :Hexplore<cr>
@@ -258,6 +282,8 @@ nnoremap <silent> <leader>hex :Hexplore<cr>
 " :cp    " Go to the previous error in the window
 " :cnf   " Go to the first error in the next file
 " :.cc   " Go to error under cursor (if cursor is in quickfix window)
+nnoremap <silent> <leader>cn :cn<cr>
+nnoremap <silent> <leader>cp :cp<cr>
 
 " Snippets
 inoremap \lam () => {}<Esc>i
@@ -269,3 +295,6 @@ nnoremap gr gT
 
 " Column cursor
 nnoremap <leader>cc :set cursorcolumn!<return>
+
+" Folding
+nnoremap <leader>zf $zf% 
