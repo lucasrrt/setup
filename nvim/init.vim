@@ -32,8 +32,8 @@ set termguicolors
 autocmd vimenter * ++nested colorscheme gruvbox
 
 " mapping errors and warnings navigation
-nnoremap ]] :call CocAction('diagnosticNext')<CR>
-nnoremap [[ :call CocAction('diagnosticPrevious')<CR>
+nnoremap <Right> :call CocAction('diagnosticNext')<CR>
+nnoremap <Left> :call CocAction('diagnosticPrevious')<CR>
 
 " mapping coc-tsserver
 nmap <silent> \gd <Plug>(coc-definition)
@@ -221,8 +221,8 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-w>g <C-w>_<C-w>\|
 nnoremap <silent> <Up> :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Down> :exe "resize " . (winheight(0) * 2/3)<CR>
-nnoremap <silent> <Right> :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
-nnoremap <silent> <Left> :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
+" nnoremap <silent> <Right> :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
+" nnoremap <silent> <Left> :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 
 " * Number of screens
 nnoremap <leader>o <C-w>o
