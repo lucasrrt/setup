@@ -94,6 +94,8 @@ nnoremap <silent> gs :Git<CR>
 nnoremap <silent> gb :Git blame<CR>
 nnoremap <silent> gl :0Gclog<CR> 
 
+nnoremap <leader>gi :Git 
+
 " nnoremap gl :Git pull
 " nnoremap gh :Git push
 
@@ -250,6 +252,9 @@ nnoremap <silent> \\ :syntax sync minlines=1000<CR>
 " Jenkinsfile VIM syntax highlighting
 au BufNewFile,BufRead Jenkinsfile setf groovy
 
+" Dockerfile.dev as dockerfile filetype
+au BufRead,BufNewFile Dockerfile.dev set filetype=dockerfile
+
 " Edit init.vim
 nnoremap <silent> <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <silent> <leader>sv :source $MYVIMRC<CR>
@@ -298,3 +303,10 @@ nnoremap <leader>cc :set cursorcolumn!<return>
 
 " Folding
 nnoremap <leader>zf $zf% 
+
+" Capitalize single word
+nnoremap <leader>U viwU
+
+" Jumplist mutations
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
