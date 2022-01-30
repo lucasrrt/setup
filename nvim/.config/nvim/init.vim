@@ -307,6 +307,12 @@ nnoremap <leader>zf $zf%
 " Capitalize single word
 nnoremap <leader>U viwU
 
+" Replacing strings with the correct first letter case
+source ~/.config/nvim/configs/smartreplace.vim
+
+nnoremap <leader>r :call SmartCaseReplace()<CR>
+vnoremap <leader>r :call SmartCaseReplace()<CR>
+
 " Jumplist mutations
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
