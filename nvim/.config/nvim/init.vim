@@ -321,3 +321,6 @@ vnoremap <leader>r :call SmartCaseReplace()<CR>
 " Jumplist mutations
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+
+" Command mode without shift
+nnoremap <leader>; :
