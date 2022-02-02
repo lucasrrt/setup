@@ -2,6 +2,10 @@
 nnoremap <space> <nop>
 let mapleader = " "
 
+" <bs> as the localleader key
+nnoremap <bs> <nop>
+let maplocalleader = "\<bs>"
+
 " # vim-plug
 call plug#begin()
 
@@ -69,10 +73,11 @@ Plug 'mileszs/ack.vim'
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-nnoremap <leader>f     :GFiles<CR>
-nnoremap <leader>ag    :Ag<CR>
-nnoremap <leader>h     :History<CR>
-nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>f      :GFiles<CR>
+nnoremap <localleader>f :Files<CR>
+nnoremap <leader>ag     :Ag<CR>
+nnoremap <leader>h      :History<CR>
+nnoremap <leader>b      :Buffers<CR>
 
 " Remove file name from Ag silver grep search
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
