@@ -2,6 +2,10 @@
 nnoremap <space> <nop>
 let mapleader = " "
 
+" <bs> as the localleader key
+nnoremap <bs> <nop>
+let maplocalleader = "\<bs>"
+
 " # vim-plug
 call plug#begin()
 
@@ -75,10 +79,11 @@ Plug 'mileszs/ack.vim'
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-nnoremap <leader>f     :GFiles<CR>
-nnoremap <leader>ag    :Ag<CR>
-nnoremap <leader>h     :History<CR>
-nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>f      :GFiles<CR>
+nnoremap <localleader>f :Files<CR>
+nnoremap <leader>ag     :Ag<CR>
+nnoremap <leader>h      :History<CR>
+nnoremap <leader>b      :Buffers<CR>
 
 " Remove file name from Ag silver grep search
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
@@ -99,6 +104,8 @@ Plug 'tpope/vim-fugitive'
 nnoremap <silent> gs :Git<CR>
 nnoremap <silent> gb :Git blame<CR>
 nnoremap <silent> gl :0Gclog<CR> 
+
+nnoremap <leader>gi :Git 
 
 " nnoremap gl :Git pull
 " nnoremap gh :Git push
@@ -259,6 +266,9 @@ nnoremap <silent> \\ :syntax sync minlines=1000<CR>
 " Jenkinsfile VIM syntax highlighting
 au BufNewFile,BufRead Jenkinsfile setf groovy
 
+" Dockerfile.dev as dockerfile filetype
+au BufRead,BufNewFile Dockerfile.dev set filetype=dockerfile
+
 " Edit init.vim
 nnoremap <silent> <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <silent> <leader>sv :source $MYVIMRC<CR>
@@ -309,5 +319,18 @@ nnoremap <leader>cc :set cursorcolumn!<return>
 " Folding
 nnoremap <leader>zf $zf% 
 
-" Shortcut to ':' to avoid having to hold shift
+" Capitalize single word
+nnoremap <leader>U viwU
+
+" Replacing strings with the correct first letter case
+source ~/.config/nvim/configs/smartreplace.vim
+
+nnoremap <leader>r :call SmartCaseReplace()<CR>
+vnoremap <leader>r :call SmartCaseReplace()<CR>
+
+" Jumplist mutations
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+
+" Command mode without shift
 nnoremap <leader>; :
