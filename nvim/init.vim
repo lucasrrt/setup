@@ -106,7 +106,10 @@ nnoremap <silent> gl :0Gclog<CR>
 Plug 'airblade/vim-gitgutter'
 " ]c jump to next-hunk
 " [c jump to next-hunk
+nmap <Down> <Plug>(GitGutterNextHunk)
 nmap ) <Plug>(GitGutterNextHunk)
+
+nmap <Up> <Plug>(GitGutterPrevHunk)
 nmap ( <Plug>(GitGutterPrevHunk)
 
 " Wrap text for git commit body messages
@@ -225,8 +228,8 @@ nnoremap <C-l> <C-w>l
 
 " * [TESTING] resizing panes
 nnoremap <C-w>g <C-w>_<C-w>\|
-nnoremap <silent> <Up> :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> <Down> :exe "resize " . (winheight(0) * 2/3)<CR>
+" nnoremap <silent> <Up> :exe "resize " . (winheight(0) * 3/2)<CR>
+" nnoremap <silent> <Down> :exe "resize " . (winheight(0) * 2/3)<CR>
 " nnoremap <silent> <Right> :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
 " nnoremap <silent> <Left> :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 
