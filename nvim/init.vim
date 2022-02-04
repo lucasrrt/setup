@@ -63,6 +63,12 @@ endfunction
 " Refresh the suggestions
 inoremap <silent><expr> <C-space> coc#refresh()
 
+" Prettier with Coc.vim
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+" Vue syntax
+Plug 'posva/vim-vue'
+
 Plug 'mileszs/ack.vim'
 
 
@@ -81,7 +87,7 @@ command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : 
 " " Fzf
 " nnoremap <leader><leader> :GFiles<CR>
 " nnoremap <leader>fi       :Files<CR>
-" nnoremap <leader>C        :Colors<CR>
+nnoremap <leader>C        :Colors<CR>
 " nnoremap <leader><CR>     :Buffers<CR>
 " nnoremap <leader>fl       :Lines<CR>
 " nnoremap <leader>ag       :Ag! <C-R><C-W><CR>
@@ -113,11 +119,6 @@ set updatetime=200
 Plug 'vim-scripts/dbext.vim'
 " <Leader>sbp to connect
 " <Leader>sel to execute
-let g:dbext_default_profile_dex_dev = 'type=PGSQL:user=postgres:host=localhost:dbname=dex_development'
-let g:dbext_default_profile_dex_staging = 'type=PGSQL:user=lucas.ricarte:host=dex-staging.ctjm30jokcz3.sa-east-1.rds.amazonaws.com:dbname=dex_staging'
-let g:dbext_default_profile_dex_production = 'type=PGSQL:user=lucas.ricarte:host=dex-production.ctjm30jokcz3.sa-east-1.rds.amazonaws.com:dbname=dex_production'
-let g:dbext_default_profile_boardsgroups_dev = 'type=PGSQL:user=postgres:host=localhost:dbname=boardsgroups_dev'
-let g:dbext_default_profile_boardsgroups_staging = 'type=PGSQL:user=boardsgroups:host=db1-postgres-staging.ctjm30jokcz3.sa-east-1.rds.amazonaws.com:dbname=boardsgroups'
 
 " TODO list in vim
 Plug 'aserebryakov/vim-todo-lists'
@@ -138,6 +139,11 @@ augroup END
 
 " Comment blocks of text easily
 Plug 'tpope/vim-commentary'
+
+" Plantuml viewer
+Plug 'aklt/plantuml-syntax'
+Plug 'tyru/open-browser.vim'
+Plug 'weirongxu/plantuml-previewer.vim'
 
 call plug#end()
 
@@ -289,6 +295,7 @@ nnoremap <silent> <leader>cp :cp<cr>
 inoremap \lam () => {}<Esc>i
 inoremap \desc describe('', () => {<Return><Return>});<Esc>kkf'a
 inoremap \it it('', () => {<Return>expect(true).toBe(true);<Return>});<Esc>kkf'a
+inoremap \debug // eslint-disable-next-line no-debugger<Esc>o<Esc>Sdebugger;
 
 " Tab navigation
 nnoremap gr gT
@@ -298,3 +305,6 @@ nnoremap <leader>cc :set cursorcolumn!<return>
 
 " Folding
 nnoremap <leader>zf $zf% 
+
+" Shortcut to ':' to avoid having to hold shift
+nnoremap <leader>; :
