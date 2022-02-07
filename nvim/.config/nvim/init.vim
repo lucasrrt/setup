@@ -334,3 +334,10 @@ nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
 " Command mode without shift
 nnoremap <leader>; :
+
+" Vimscript file fold settings {{{
+augroup filetype_vim
+  autocmd!
+  autocmd FileType vim setlocal foldmethod=marker
+augroup END
+" }}}
