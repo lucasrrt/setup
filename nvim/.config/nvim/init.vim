@@ -1,3 +1,4 @@
+" Leader and localleader settings {{{
 " <space> as the leader key
 nnoremap <space> <nop>
 let mapleader = " "
@@ -5,6 +6,10 @@ let mapleader = " "
 " <bs> as the localleader key
 nnoremap <bs> <nop>
 let maplocalleader = "\<bs>"
+
+" Command mode without shift
+nnoremap <leader>; :
+" }}}
 
 " # vim-plug
 call plug#begin()
@@ -80,7 +85,7 @@ Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 nnoremap <leader>f      :GFiles<CR>
-nnoremap <localleader>f :Files<CR>
+nnoremap <leader>F      :Files<CR>
 nnoremap <leader>ag     :Ag<CR>
 nnoremap <leader>h      :History<CR>
 nnoremap <leader>b      :Buffers<CR>
@@ -331,9 +336,6 @@ vnoremap <leader>r :call SmartCaseReplace()<CR>
 " Jumplist mutations
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
-
-" Command mode without shift
-nnoremap <leader>; :
 
 " Vimscript file fold settings {{{
 augroup filetype_vim
