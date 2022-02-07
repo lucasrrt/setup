@@ -14,6 +14,7 @@ nnoremap <leader>; :
 " # vim-plug
 call plug#begin()
 
+" File navigation settings {{{
 Plug 'easymotion/vim-easymotion'
 " <Leader> is configured as \\
 " Useful commands:
@@ -21,6 +22,16 @@ Plug 'easymotion/vim-easymotion'
 " map <Space><Space> <Plug>(easymotion-prefix)
 map <Leader>/ <Plug>(easymotion-s2)
 nmap ff <Plug>(easymotion-s)
+" }}}
+
+" Color scheme settings {{{
+" Color scheme
+" hi Pmenu ctermbg=DarkGray ctermfg=White
+" hi CocWarningSign ctermfg=Yellow
+Plug 'morhetz/gruvbox'
+set termguicolors
+autocmd vimenter * ++nested colorscheme gruvbox
+" }}}
 
 " quote ', parentheses (, brackets { [, tags <> manipulation and
 " auto-completition
@@ -31,14 +42,8 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 
+" LSP Code completition {{{
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Color scheme
-" hi Pmenu ctermbg=DarkGray ctermfg=White
-" hi CocWarningSign ctermfg=Yellow
-Plug 'morhetz/gruvbox'
-set termguicolors
-autocmd vimenter * ++nested colorscheme gruvbox
 
 " mapping errors and warnings navigation
 nnoremap <Right> :call CocAction('diagnosticNext')<CR>
@@ -74,13 +79,14 @@ inoremap <silent><expr> <C-space> coc#refresh()
 
 " Prettier with Coc.vim
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
+" }}}
 
 " Vue syntax
 Plug 'posva/vim-vue'
 
 Plug 'mileszs/ack.vim'
 
-
+" Workdir settings {{{
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -102,8 +108,9 @@ nnoremap <leader>C        :Colors<CR>
 " nnoremap <leader>fl       :Lines<CR>
 " nnoremap <leader>ag       :Ag! <C-R><C-W><CR>
 " nnoremap <leader>m        :History<CR>
+" }}}
 
-" Git
+" Git settings {{{
 Plug 'tpope/vim-fugitive'
 " for patch adds check: https://vi.stackexchange.com/a/14888
 nnoremap <silent> gs :Git<CR>
@@ -126,6 +133,7 @@ nmap ( <Plug>(GitGutterPrevHunk)
 
 " Wrap text for git commit body messages
 au FileType gitcommit setlocal tw=72
+" }}}
 
 " Update diff markers. Can also update other things in Vim
 set updatetime=200
