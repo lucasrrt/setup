@@ -1,0 +1,8 @@
+{
+  "diagnostic.checkCurrentLine": true,
+  "eslint.autoFixOnSave": false,
+  "tsserver.enableJavascript": false,
+  "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "typescript", "ts"],
+  "prettier.eslintIntegration": true,
+  "coc.preferences.useQuickfixForLocations": true
+}
