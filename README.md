@@ -1,2 +1,6 @@
 # Setup
-Some configuration for Tmux, NeoVim, Zsh, and VsCode
+Configuration files for:
+- Tmux
+- [NeoVim](./nvim/README.md)
+- [Zsh](./zsh/README.md)
+- VsCode
