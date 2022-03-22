@@ -1,0 +1,1 @@
+ln -f ./.zshrc ~/.zshrc
