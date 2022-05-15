@@ -126,30 +126,10 @@ unsetopt nomatch
 
 alias ipecho='curl https://ipecho.net/plain --silent > ipecho.txt ; pbcopy < ipecho.txt ; rm ipecho.txt'
 alias deleteme='cd ~/Desktop/deleteme'
-
-# Repo aliases
-alias cl='cd ~/Descomplica/classrooms'
-alias dm='cd ~/Descomplica/dex-models'
-
-alias crud='cd ~/Descomplica/dex-api-crud'
-alias cq='cd ~/Descomplica/dex-api-custom_queries'
-alias db='cd ~/Descomplica/dex-db'
-
-alias lap='cd ~/Descomplica/lap'
-alias trex='cd ~/Descomplica/lap/trex'
-alias chi='cd ~/Descomplica/chimera'
-alias infra='cd ~/Descomplica/infrastructure'
-
-alias wes='cd ~/Descomplica/westeros'
-
 alias keyb='cd ~/git/keyboard-layouts'
 
 # Command aliases
 alias docup='docker-compose up -d mongo redis'
-
-# compa dir
-alias cweb='cd ~/compa/web'
-alias capi='cd ~/compa/api'
 
 # Vi mode
 bindkey -v
