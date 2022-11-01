@@ -374,3 +374,9 @@ augroup filetype_lua
   autocmd FileType lua setlocal foldmethod=marker
 augroup END
 " }}}
+
+" Copy filename into clipboard
+nnoremap cp :let @* = expand("%")<cr>
+nnoremap cP :let @* = expand("%:p")<cr>
+
+xnoremap <leader>p "_dP
