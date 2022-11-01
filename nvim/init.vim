@@ -69,7 +69,9 @@ nmap  <leader>cod :CocDisable<CR>
 nmap  <leader>cor :CocRestart<CR>
 
 " Show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+" Commenting SID because it freezes vim sometimes
+" nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> K :call CocAction('doHover')<cr>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -330,11 +332,13 @@ nnoremap <silent> <leader>hex :Hexplore<cr>
 " :.cc   " Go to error under cursor (if cursor is in quickfix window)
 nnoremap <silent> <leader>cn :cn<cr>
 nnoremap <silent> <leader>cp :cp<cr>
+nnoremap <silent> > :cn<cr>
+nnoremap <silent> < :cp<cr>
 
 " Snippets
 inoremap \lam () => {}<Esc>i
-inoremap \desc describe('', () => {<Return><Return>});<Esc>kkf'a
-inoremap \it it('', () => {<Return>expect(true).toBe(true);<Return>});<Esc>kkf'a
+inoremap \desc describe("", () => {<Return><Return>});<Esc>kkf'a
+inoremap \it it("", () => {<Return>expect(true).toBe(true);<Return>});<Esc>kkf'a
 inoremap \debug // eslint-disable-next-line no-debugger<Esc>o<Esc>Sdebugger;
 
 " Tab navigation
