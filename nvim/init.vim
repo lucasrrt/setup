@@ -384,5 +384,13 @@ augroup END
 " Copy filename into clipboard
 nnoremap cp :let @* = expand("%")<cr>
 nnoremap cP :let @* = expand("%:p")<cr>
+" Copy file github url into clipboard
+" TODO: make it work for https repos (only working for ssh because of the
+" regex that searches for a :)
+" TODO: Check if branch is online. If not, get the name in green branch
+" TODO: make this into a function
+" nnoremap cu :let @* = 'https://github.com/Faire/web-retailer/blob/master/'.expand("%")<cr>
+nnoremap <silent> cu :let @* = 'https://github.com/'.substitute(system("git remote get-url origin"), '^.*:\(.*\)\n', '\1', '').'/blob/master/'.expand("%")<cr>
+nnoremap <silent> cU :let @* = 'https://github.com/'.substitute(system("git remote get-url origin"), '^.*:\(.*\)\n', '\1', '').'/blob/'.substitute(system('git rev-parse --abbrev-ref HEAD'), '\n', '', '').'/'.expand("%")<cr>
 
 xnoremap <leader>p "_dP
