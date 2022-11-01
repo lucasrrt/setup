@@ -184,6 +184,12 @@ Plug 'aklt/plantuml-syntax'
 Plug 'tyru/open-browser.vim'
 Plug 'weirongxu/plantuml-previewer.vim'
 
+" Treesitter and context
+" nvim-treesitter-context was not working, testing this new one
+" Plug 'nvim-treesitter/nvim-treesitter'
+" Plug 'nvim-treesitter/nvim-treesitter-context'
+Plug 'wellle/context.vim'
+
 call plug#end()
 
 " # Default configurations
