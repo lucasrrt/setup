@@ -51,17 +51,22 @@ nnoremap <Left> :call CocAction('diagnosticPrevious')<CR>
 
 " mapping coc-tsserver
 nmap <silent> \gd <Plug>(coc-definition)
+nmap <silent> <leader>gd <Plug>(coc-definition)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> \gs :split<CR><Plug>(coc-definition)
+nmap <silent> <leader>gs :split<CR><Plug>(coc-definition)
 nmap <silent> \gv :vsplit<CR><Plug>(coc-definition)
+nmap <silent> <leader>gv :vsplit<CR><Plug>(coc-definition)
 nmap <silent> \gt :vsp<CR><Plug>(coc-definition)<C-W>T
+nmap <silent> <leader>gt :vsp<CR><Plug>(coc-definition)<C-W>T
 " Some suggestions of mapping
 " nmap <silent> gd <Plug>(coc-definition)
 " nmap <silent> gy <Plug>(coc-type-definition)
 " nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> <leader>gr <Plug>(coc-references)
+nmap  <leader>gr <Plug>(coc-references)
 nmap  <leader>coe :CocEnable<CR>
 nmap  <leader>cod :CocDisable<CR>
+nmap  <leader>cor :CocRestart<CR>
 
 " Show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
