@@ -190,6 +190,18 @@ Plug 'weirongxu/plantuml-previewer.vim'
 " Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'wellle/context.vim'
 
+" Harpoon, easy for file navigation and plenary for whatever reason
+Plug 'nvim-lua/plenary.nvim'
+Plug 'ThePrimeagen/harpoon'
+
+nnoremap <leader>hh :lua require("harpoon.ui").toggle_quick_menu()<cr>
+nnoremap <leader>ha :lua require("harpoon.mark").add_file()<cr>
+nnoremap <leader>hn :lua require("harpoon.ui").nav_next()<cr>
+nnoremap <leader>hN :lua require("harpoon.ui").nav_prev()<cr>
+nnoremap <leader>h1 :lua require("harpoon.ui").nav_file(1)<cr>
+nnoremap <leader>h2 :lua require("harpoon.ui").nav_file(2)<cr>
+nnoremap <leader>h3 :lua require("harpoon.ui").nav_file(3)<cr>
+
 call plug#end()
 
 " # Default configurations
@@ -384,6 +396,8 @@ augroup END
 " Copy filename into clipboard
 nnoremap cp :let @* = expand("%")<cr>
 nnoremap cP :let @* = expand("%:p")<cr>
+nnoremap co :let @* = expand("%:t")<cr>
+
 " Copy file github url into clipboard
 " TODO: make it work for https repos (only working for ssh because of the
 " regex that searches for a :)
@@ -407,6 +421,15 @@ function! GetGithubURL(...)
   let linenumber = line(".")
 
   return github_base_url.org_and_repo.github_blob.github_branch.filename_with_path.github_line_number.linenumber
+endfunction
+
+function! CopyToClipboard(string)
+  let @* = a:string
+endfunction
+
+function! GetGithubURLInClipboard(...)
+  " TODO: only pass the param if it receives one
+  call CopyToClipboard(GetGithubURL(get(a:, 1, 0)))
 endfunction
 
 " TODO get 'main' branch
