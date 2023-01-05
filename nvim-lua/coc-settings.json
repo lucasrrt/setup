@@ -1,0 +1,28 @@
+{
+  "Lua.telemetry.enable": false,
+  "Lua.diagnostics.globals": ["vim"],
+  "sumneko-lua.enableNvimLuaDev": true,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "languageserver": {
+    "lua": {
+      "command": "/Users/lucasricarte/.config/coc/extensions/coc-sumneko-lua-data/sumneko-lua-ls/extension/server/bin/lua-language-server",
+      "args": [
+        "-E",
+        "/Users/lucasricarte/.config/coc/extensions/coc-sumneko-lua-data/sumneko-lua-ls/extension/server/bin/main.lua"
+      ],
+      "filetypes": ["lua"],
+      "settings": {
+        "Lua": {
+          "workspace.library": {
+            "/usr/local/Cellar/neovim/HEAD-81f1e33/share/nvim/runtime/lua": true,
+            "/usr/local/Cellar/neovim/HEAD-81f1e33/share/nvim/runtime/lua/vim": true,
+            "/usr/local/Cellar/neovim/HEAD-81f1e33/share/nvim/runtime/lua/vim/lsp": true
+          },
+          "diagnostics": {
+            "globals": ["vim"]
+          }  
+        }
+      }
+    }
+  }
+}

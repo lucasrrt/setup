@@ -1,0 +1,7 @@
+require('plugins')
+require('opt')
+require('identation')
+require('file_settings')
+require('maps')
+require('quickfix')
+require('get_file_info')
