@@ -22,6 +22,7 @@ Plug 'easymotion/vim-easymotion'
 " map <Space><Space> <Plug>(easymotion-prefix)
 map <Leader>/ <Plug>(easymotion-s2)
 nmap ff <Plug>(easymotion-s)
+nmap s <Plug>(easymotion-s)
 " }}}
 
 " Color scheme settings {{{
@@ -193,6 +194,7 @@ Plug 'wellle/context.vim'
 " Harpoon, easy for file navigation and plenary for whatever reason
 Plug 'nvim-lua/plenary.nvim'
 Plug 'ThePrimeagen/harpoon'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 
 nnoremap <leader>hh :lua require("harpoon.ui").toggle_quick_menu()<cr>
 nnoremap <leader>ha :lua require("harpoon.mark").add_file()<cr>
@@ -201,6 +203,13 @@ nnoremap <leader>hN :lua require("harpoon.ui").nav_prev()<cr>
 nnoremap <leader>h1 :lua require("harpoon.ui").nav_file(1)<cr>
 nnoremap <leader>h2 :lua require("harpoon.ui").nav_file(2)<cr>
 nnoremap <leader>h3 :lua require("harpoon.ui").nav_file(3)<cr>
+
+nnoremap <leader>tb :Telescope git_branches<cr>
+nnoremap <leader>tf :Telescope git_files<cr>
+nnoremap <leader>ts :Telescope git_stash<cr>
+
+" Substitution with intelligent case
+Plug 'tpope/vim-abolish'
 
 call plug#end()
 
@@ -348,6 +357,7 @@ nnoremap <silent> <leader>hex :Hexplore<cr>
 " :cp    " Go to the previous error in the window
 " :cnf   " Go to the first error in the next file
 " :.cc   " Go to error under cursor (if cursor is in quickfix window)
+
 nnoremap <silent> <leader>cn :cn<cr>
 nnoremap <silent> <leader>cp :cp<cr>
 nnoremap <silent> > :cn<cr>
