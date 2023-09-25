@@ -55,6 +55,9 @@ return require('packer').startup(function(use)
   -- Substitution with intelligent case
   use 'tpope/vim-abolish'
 
+  -- Prisma
+  use 'prisma/vim-prisma'
+
   -- In old configuration
   -- Plug 'posva/vim-vue'
   -- Plug 'mileszs/ack.vim'
