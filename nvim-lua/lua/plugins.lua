@@ -39,7 +39,7 @@ return require('packer').startup(function(use)
 
   -- Treesitter and context
   -- nvim-treesitter-context was not working, testing this new one
-  -- Plug 'nvim-treesitter/nvim-treesitter'
+  use 'nvim-treesitter/nvim-treesitter'
   -- Plug 'nvim-treesitter/nvim-treesitter-context'
   use 'wellle/context.vim'
 
