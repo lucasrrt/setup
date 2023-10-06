@@ -58,6 +58,9 @@ return require('packer').startup(function(use)
   -- Prisma
   use 'prisma/vim-prisma'
 
+  -- Seemless navigation between tmux and vim
+  use 'christoomey/vim-tmux-navigator'
+
   -- In old configuration
   -- Plug 'posva/vim-vue'
   -- Plug 'mileszs/ack.vim'

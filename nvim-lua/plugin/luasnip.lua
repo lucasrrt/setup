@@ -83,9 +83,9 @@ ls.add_snippets("typescript", {
   s('imp', {
     t('import { '),
     i(2),
-    t(' } from "'),
+    t(" } from '"),
     i(1),
-    t('";')
+    t("';")
   }),
   s('desc', {
     t('describe("'),
